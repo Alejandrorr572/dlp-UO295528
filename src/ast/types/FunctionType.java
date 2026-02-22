@@ -1,19 +1,19 @@
 package ast.types;
 
-import ast.sentences.Sentence;
+import ast.statements.Statement;
 import java.util.List;
 
 public class FunctionType implements Type {
 
-    private List<Sentence> parameters;
+    private List<Statement> parameters;
     private Type returnType;
 
-    public FunctionType(List<Sentence> parameters, Type returnType) {
+    public FunctionType(List<Statement> parameters, Type returnType) {
         this.parameters = parameters;
         this.returnType = returnType;
     }
 
-    public List<Sentence> getParameters() {
+    public List<Statement> getParameters() {
         return parameters;
     }
 

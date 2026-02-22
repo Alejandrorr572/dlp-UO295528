@@ -1,10 +1,10 @@
-package ast.sentences;
+package ast.statements;
 
 import ast.AbstractLocatable;
 import ast.expressions.Expression;
 import java.util.List;
 
-public class Read extends AbstractLocatable implements Sentence {
+public class Read extends AbstractLocatable implements Statement {
 
     private List<Expression> expressions;
 

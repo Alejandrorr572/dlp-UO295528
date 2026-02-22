@@ -1,9 +1,9 @@
-package ast.sentences;
+package ast.statements;
 
 import ast.AbstractLocatable;
 import ast.expressions.Expression;
 
-public class Assignment extends AbstractLocatable implements Sentence {
+public class Assignment extends AbstractLocatable implements Statement {
 
     private Expression left;
     private Expression right;

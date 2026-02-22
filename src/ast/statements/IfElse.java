@@ -1,17 +1,17 @@
-package ast.sentences;
+package ast.statements;
 
 import ast.expressions.Expression;
 
 public class IfElse extends ConditionalSentence {
 
-    private Sentence elseBody;
+    private Statement elseBody;
 
-    public IfElse(Expression condition, Sentence body, Sentence elseBody, int line, int column) {
+    public IfElse(Expression condition, Statement body, Statement elseBody, int line, int column) {
         super(condition, body, line, column);
         this.elseBody = elseBody;
     }
 
-    public Sentence getElseBody() {
+    public Statement getElseBody() {
         return elseBody;
     }
 }

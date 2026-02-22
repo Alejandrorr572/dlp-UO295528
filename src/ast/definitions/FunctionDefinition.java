@@ -2,15 +2,15 @@ package ast.definitions;
 
 import ast.types.FunctionType;
 import ast.types.Type;
-import ast.sentences.Sentence;
+import ast.statements.Statement;
 import java.util.List;
 
 public class FunctionDefinition implements Definition {
 
     private FunctionType type;
-    private List<Sentence> body;
+    private List<Statement> body;
 
-    public FunctionDefinition(FunctionType type, List<Sentence> body) {
+    public FunctionDefinition(FunctionType type, List<Statement> body) {
         this.type = type;
         this.body = body;
     }
@@ -20,7 +20,7 @@ public class FunctionDefinition implements Definition {
         return type;
     }
 
-    public List<Sentence> getBody() {
+    public List<Statement> getBody() {
         return body;
     }
 }
