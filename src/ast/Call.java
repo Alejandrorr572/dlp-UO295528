@@ -1,7 +1,8 @@
-package ast.statements;
+package ast;
 
-import ast.AbstractLocatable;
 import ast.expressions.Expression;
+import ast.statements.Statement;
+
 import java.util.List;
 
 public class Call extends AbstractLocatable implements Statement, Expression {

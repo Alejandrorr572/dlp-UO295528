@@ -2,13 +2,13 @@ package ast.expressions;
 
 import ast.AbstractLocatable;
 
-public class BinaryOperation extends AbstractLocatable implements Expression {
+public class ArithmeticOperation extends AbstractLocatable implements Expression {
 
     private Expression left;
     private String operator;
     private Expression right;
 
-    public BinaryOperation(Expression left, String operator, Expression right, int line, int column) {
+    public ArithmeticOperation(Expression left, String operator, Expression right, int line, int column) {
         super(line, column);
         this.left = left;
         this.operator = operator;
