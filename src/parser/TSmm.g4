@@ -33,7 +33,6 @@ expression returns [Expression ast]:
           | CHAR_CONSTANT {$ast = new CharLiteral(LexerHelper.lexemeToChar($CHAR_CONSTANT.text),$CHAR_CONSTANT.getLine(),
                                            $CHAR_CONSTANT.getCharPositionInLine() + 1);}
           | '('e1=expression')' {$ast = $e1.ast;}
-          | '['e1=expression']' {$ast = $e1.ast;}
           | e1=expression '.' ID {$ast = new FieldAccess($e1.ast,$ID.text,
                 $e1.ast.getLine(), $e1.ast.getColumn() + 1);}
           | '('expression 'as' simple_type')'
