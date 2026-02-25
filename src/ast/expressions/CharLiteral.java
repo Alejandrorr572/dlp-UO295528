@@ -2,11 +2,11 @@ package ast.expressions;
 
 import ast.AbstractLocatable;
 
-public class CharConstant extends AbstractLocatable implements Expression {
+public class CharLiteral extends AbstractLocatable implements Expression {
 
     private char value;
 
-    public CharConstant(char value, int line, int column) {
+    public CharLiteral(char value, int line, int column) {
         super(line, column);
         this.value = value;
     }

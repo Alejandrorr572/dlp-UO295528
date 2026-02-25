@@ -5,12 +5,12 @@ import ast.statements.Statement;
 
 import java.util.List;
 
-public class Call extends AbstractLocatable implements Statement, Expression {
+public class FunctionCall extends AbstractLocatable implements Statement, Expression {
 
     private String name;
     private List<Expression> expressions;
 
-    public Call(String name, List<Expression> expressions, int line, int column) {
+    public FunctionCall(String name, List<Expression> expressions, int line, int column) {
         super(line, column);
         this.name = name;
         this.expressions = expressions;

@@ -4,20 +4,20 @@ import ast.AbstractLocatable;
 
 public class FieldAccess extends AbstractLocatable implements Expression {
 
-    private String name;
-    private Expression value;
+    private Expression name;
+    private String field;
 
-    public FieldAccess(String name, Expression value, int line, int column) {
+    public FieldAccess(Expression name, String field, int line, int column) {
         super(line, column);
         this.name = name;
-        this.value = value;
+        this.field = field;
     }
 
-    public String getName() {
+    public Expression getName() {
         return name;
     }
 
-    public Expression getValue() {
-        return value;
+    public String getField() {
+        return field;
     }
 }

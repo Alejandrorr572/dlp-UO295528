@@ -6,7 +6,7 @@
         <PerGrammarGenerationSettings>
           <option name="fileName" value="$PROJECT_DIR$/src/parser/TSmm.g4" />
           <option name="autoGen" value="true" />
-          <option name="outputDir" value="C:\Users\alexr\IdeaProjects\DLP-UO295528\src" />
+          <option name="outputDir" value="src" />
           <option name="libDir" value="" />
           <option name="encoding" value="" />
           <option name="pkg" value="parser" />
@@ -16,7 +16,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2">
+  <component name="ProjectRootManager">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

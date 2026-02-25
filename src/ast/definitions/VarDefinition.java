@@ -1,16 +1,18 @@
 package ast.definitions;
 
+import ast.AbstractLocatable;
 import ast.types.Type;
 import java.util.List;
 
-public class VarDefinition implements Definition {
+public class VarDefinition extends AbstractLocatable implements Definition {
 
     private Type type;
-    private List<String> identifiers;
+    private String identifier;
 
-    public VarDefinition(Type type, List<String> identifiers) {
+    public VarDefinition(Type type, String identifier, int line, int column) {
+        super(line,column);
         this.type = type;
-        this.identifiers = identifiers;
+        this.identifier = identifier;
     }
 
     @Override
@@ -18,7 +20,7 @@ public class VarDefinition implements Definition {
         return type;
     }
 
-    public List<String> getIdentifiers() {
-        return identifiers;
+    public String getIdentifiers() {
+        return identifier;
     }
 }
