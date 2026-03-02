@@ -2,6 +2,15 @@
 let i, j, n: int;
 let c: char;
 
+let character: [
+                     let integer: [
+                     let record: [10][5]int;
+                     let array: [10][5][
+                        let integer: char;
+                     ];
+                        ];
+  	];
+
 // Empty function
 function p(): void{ }
 
@@ -11,6 +20,7 @@ function f(n: int,r: number): int {
 	c1 = (n as char);
   	real = c1 + n + r;
   	p(); // Invocation as a statement
+
   	return c1;
 }
 

@@ -65,7 +65,8 @@ statement returns [List<Statement> ast] locals [List<Expression> params = new Ar
     | ID '(' (e1=expression {$params.add($e1.ast);} (',' e2=expression {$params.add($e2.ast);})*)? ')' ';'
     {
         $ast = new ArrayList<>();
-        $ast.add(new FunctionCall($ID.text, $params, $ID.getLine(), $ID.getCharPositionInLine() + 1));
+        $ast.add(new FunctionCall(new Variable($ID.text, $ID.getLine(), $ID.getCharPositionInLine()+1),
+            $params, $ID.getLine(), $ID.getCharPositionInLine() + 1));
     }
     ;
 
@@ -105,7 +106,7 @@ expression returns [Expression ast] locals [List<Expression> params = new ArrayL
 
           | e1=expression '.' ID
           {
-            $ast = new FieldAccess($e1.ast,$ID.text,
+            $ast = new FieldAccess($e1.ast, $ID.text,
                 $e1.ast.getLine(), $e1.ast.getColumn() + 1);
           }
 
@@ -125,13 +126,13 @@ expression returns [Expression ast] locals [List<Expression> params = new ArrayL
           {
             $params.add($e1.ast);
           }
-          (','e2=expression
+            (','e2=expression
           {
-          $params.add($e2.ast);
+            $params.add($e2.ast);
           }
           )*)?')'
           {
-            $ast = new FunctionCall($ID.text,
+            $ast = new FunctionCall(new Variable($ID.text, $ID.getLine(), $ID.getCharPositionInLine()+1),
                 $params,
                 $ID.getLine(),
                 $ID.getCharPositionInLine() + 1);
@@ -202,7 +203,7 @@ function_type returns [FunctionType ast] locals [List<VarDefinition> params = ne
                 {$params.add(new VarDefinition($t1.ast,$ID1.text, $ID1.getLine(), $ID1.getCharPositionInLine() + 1));}
                 (',' ID2=ID ':' t2=simple_type
                 {$params.add(new VarDefinition($t2.ast,$ID2.text, $ID2.getLine(), $ID2.getCharPositionInLine() + 1));}
-                )*)? ')'
+                )*)? ')' ':' 'void'
                 {$ast = new FunctionType($params,VoidType.getInstance());}
 
              | '('  (ID1=ID ':' t1=simple_type
@@ -224,11 +225,9 @@ var_definitions returns [List<Definition> ast] locals [List<String> ids = new Ar
 
 type returns [Type ast] locals [int dim = 1, List<RecordField> records = new ArrayList<>()]:
     simple_type {$ast = $simple_type.ast;}
-    | 'void'  {$ast = VoidType.getInstance();}
     | '['('let' ID ':' type ';' {$records.add(new RecordField($type.ast,$ID.text));})*']'
         {$ast = new RecordType($records);}
-    | ('['INT_CONSTANT']'{$dim = $dim*LexerHelper.lexemeToInt($INT_CONSTANT.text);})+
-        simple_type {$ast = new ArrayType($dim,$simple_type.ast);}
+    | '['INT_CONSTANT']' type {$ast = new ArrayType(LexerHelper.lexemeToInt($INT_CONSTANT.text),$type.ast);}
     ;
 
 simple_type returns [Type ast]:

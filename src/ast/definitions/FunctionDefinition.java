@@ -6,24 +6,13 @@ import ast.types.Type;
 import ast.statements.Statement;
 import java.util.List;
 
-public class FunctionDefinition extends AbstractLocatable implements Definition {
+public class FunctionDefinition extends AbstractDefinition {
 
-    private FunctionType type;
-    private String name;
     private List<Statement> body;
 
     public FunctionDefinition(String name, FunctionType type, List<Statement> body, int line, int column) {
-        super(line,column);
-        this.name = name;
-        this.type = type;
+        super(line,column, name, type);
         this.body = body;
-    }
-
-    public String getName(){return name;}
-
-    @Override
-    public Type getType() {
-        return type;
     }
 
     public List<Statement> getBody() {
