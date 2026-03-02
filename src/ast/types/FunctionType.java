@@ -1,19 +1,20 @@
 package ast.types;
 
+import ast.definitions.VarDefinition;
 import ast.statements.Statement;
 import java.util.List;
 
 public class FunctionType implements Type {
 
-    private List<Statement> parameters;
+    private List<VarDefinition> parameters;
     private Type returnType;
 
-    public FunctionType(List<Statement> parameters, Type returnType) {
+    public FunctionType(List<VarDefinition> parameters, Type returnType) {
         this.parameters = parameters;
         this.returnType = returnType;
     }
 
-    public List<Statement> getParameters() {
+    public List<VarDefinition> getParameters() {
         return parameters;
     }
 

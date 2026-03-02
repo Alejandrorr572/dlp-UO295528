@@ -2,16 +2,21 @@ package ast.statements;
 
 import ast.expressions.Expression;
 
+import java.util.List;
+
 public class IfElse extends ConditionalSentence {
 
-    private Statement elseBody;
+    private List<Statement> elseBody;
 
-    public IfElse(Expression condition, Statement body, Statement elseBody, int line, int column) {
+    public IfElse(Expression condition, List<Statement> body, int line, int column) {
         super(condition, body, line, column);
-        this.elseBody = elseBody;
     }
 
-    public Statement getElseBody() {
+    public List<Statement> getElseBody() {
         return elseBody;
+    }
+
+    public void addElseBody(List<Statement> elseBody){
+        this.elseBody = elseBody;
     }
 }

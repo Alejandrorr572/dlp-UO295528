@@ -1,10 +1,11 @@
 package ast.definitions;
 
 import ast.AbstractLocatable;
+import ast.statements.Statement;
 import ast.types.Type;
 import java.util.List;
 
-public class VarDefinition extends AbstractLocatable implements Definition {
+public class VarDefinition extends AbstractLocatable implements Definition, Statement {
 
     private Type type;
     private String identifier;

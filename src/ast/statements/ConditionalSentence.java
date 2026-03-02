@@ -3,12 +3,14 @@ package ast.statements;
 import ast.AbstractLocatable;
 import ast.expressions.Expression;
 
+import java.util.List;
+
 public abstract class ConditionalSentence extends AbstractLocatable implements Statement {
 
     private Expression condition;
-    private Statement body;
+    private List<Statement> body;
 
-    public ConditionalSentence(Expression condition, Statement body, int line, int column) {
+    public ConditionalSentence(Expression condition, List<Statement> body, int line, int column) {
         super(line, column);
         this.condition = condition;
         this.body = body;
@@ -18,7 +20,7 @@ public abstract class ConditionalSentence extends AbstractLocatable implements S
         return condition;
     }
 
-    public Statement getBody() {
+    public List<Statement> getBody() {
         return body;
     }
 }

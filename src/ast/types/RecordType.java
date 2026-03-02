@@ -8,7 +8,7 @@ public class RecordType implements Type {
 
     private List<RecordField> fields;
 
-    public RecordType(List<VarDefinition> definitions) {
+    public RecordType(List<RecordField> fields) {
         this.fields = fields;
     }
 
