@@ -1,4 +1,5 @@
-
+node_modules/*
+out/*
 TSmm.interp
 TSmmLexer.java
 TSmm.tokens

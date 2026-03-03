@@ -3,7 +3,7 @@ package ast.definitions;
 import ast.AbstractLocatable;
 import ast.types.Type;
 
-public class AbstractDefinition extends AbstractLocatable implements Definition  {
+public abstract class AbstractDefinition extends AbstractLocatable implements Definition  {
 
     private String name;
     private Type type;
