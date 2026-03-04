@@ -2,11 +2,12 @@ package ast.statements;
 
 import ast.expressions.Expression;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class IfElse extends ConditionalSentence {
 
-    private List<Statement> elseBody;
+    private List<Statement> elseBody = new ArrayList<>();
 
     public IfElse(Expression condition, List<Statement> body, int line, int column) {
         super(condition, body, line, column);

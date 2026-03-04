@@ -1,10 +1,11 @@
-import ast.Program;
+import ast.ASTNode;
+import errorhandler.ErrorHandler;
+import parser.*;
+
 import org.antlr.v4.runtime.*;
 
 import introspector.model.IntrospectorModel;
 import introspector.view.IntrospectorView;
-import parser.TSmmLexer;
-import parser.TSmmParser;
 
 public class Main {
 	
@@ -19,12 +20,19 @@ public class Main {
 		TSmmLexer lexer = new TSmmLexer(input);
 
 		// create a parser that feeds off the tokens buffer
-		CommonTokenStream tokens = new CommonTokenStream(lexer); 
+		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		TSmmParser parser = new TSmmParser(tokens);
-		Program ast = parser.program().ast;
+		ASTNode ast = parser.program().ast;
 		
-		// * The AST is shown
-		IntrospectorModel model=new IntrospectorModel("Program", ast);
-		new IntrospectorView("Introspector", model);
+		// * Check errors
+		if(ErrorHandler.getInstance().anyError()){
+			// * Show errors
+			ErrorHandler.getInstance().showErrors(System.err);
+		}
+		else{
+			// * The AST is shown
+			IntrospectorModel model=new IntrospectorModel("Program", ast);
+			new IntrospectorView("Introspector", model);
+		}
 	}
 }

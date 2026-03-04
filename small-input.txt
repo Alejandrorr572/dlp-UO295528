@@ -59,13 +59,16 @@ function show(): void{
 
 // Record
 let date: [
-	let day, mounth, year:int;
+	let day, month, year:int;
+	let a:[10][6]int;
 ];
 
 // Main program
 // function no_main(): void{ // Uncomment to test
 function main(): void{ // Uncomment to test
-	let characters:[1][2][3]char;
+	let characters:[1][2][3][
+	let day, month, year:int;
+];
 	//let a:void;
 	//a+3();
 	//2+3.a = 5;
@@ -83,11 +86,11 @@ function main(): void{ // Uncomment to test
 
 	date.day = 4;
 	date.mounth = 3;
-	date.year = 2020;
+	date.year.c = st[9].age;
 
 	character = (date.day as char);
 	real = 4.5 + 4. * 3e+3 - 5.4E-3;
 	input integer, character, real;
 	//let error:int; // Uncomment to test
 }
-//function no_function(): void{} // Uncomment to test
+// function no_function(): void{} // Uncomment to test

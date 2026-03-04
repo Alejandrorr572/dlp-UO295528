@@ -223,10 +223,23 @@ var_definitions returns [List<Definition> ast] locals [List<String> ids = new Ar
                 }
                 ;
 
-type returns [Type ast] locals [int dim = 1, List<RecordField> records = new ArrayList<>()]:
+type returns [Type ast] locals [int dim = 1, List<RecordField> records = new ArrayList<>(), List<String> ids = new ArrayList<>()]:
     simple_type {$ast = $simple_type.ast;}
-    | '['('let' ID ':' type ';' {$records.add(new RecordField($type.ast,$ID.text));})*']'
+    | '['('let' ID1=ID
+    {
+    $ids.add($ID1.text);
+    } (',' ID2=ID
+    {
+    $ids.add($ID2.text);
+    })* ':' type ';'
+    {
+        for(String id: $ids){
+            $records.add(new RecordField($type.ast,id));
+        }
+        $ids = new ArrayList<>();
+    })*']'
         {$ast = new RecordType($records);}
+
     | '['INT_CONSTANT']' type {$ast = new ArrayType(LexerHelper.lexemeToInt($INT_CONSTANT.text),$type.ast);}
     ;
 

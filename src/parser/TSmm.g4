@@ -236,6 +236,7 @@ type returns [Type ast] locals [int dim = 1, List<RecordField> records = new Arr
         for(String id: $ids){
             $records.add(new RecordField($type.ast,id));
         }
+        $ids = new ArrayList<>();
     })*']'
         {$ast = new RecordType($records);}
 
