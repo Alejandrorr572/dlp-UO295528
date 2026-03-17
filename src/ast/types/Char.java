@@ -1,5 +1,7 @@
 package ast.types;
 
+import visitors.Visitor;
+
 public class Char implements Type {
 
     private static Char instance;
@@ -10,5 +12,9 @@ public class Char implements Type {
         if(instance == null)
             instance = new Char();
         return instance;
+    }
+
+    public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
+        return v.visit(this, param);
     }
 }

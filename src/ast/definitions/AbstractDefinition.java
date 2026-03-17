@@ -2,6 +2,7 @@ package ast.definitions;
 
 import ast.AbstractLocatable;
 import ast.types.Type;
+import visitors.Visitor;
 
 public abstract class AbstractDefinition extends AbstractLocatable implements Definition  {
 

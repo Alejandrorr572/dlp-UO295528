@@ -4,6 +4,8 @@ import ast.AbstractLocatable;
 import ast.types.FunctionType;
 import ast.types.Type;
 import ast.statements.Statement;
+import visitors.Visitor;
+
 import java.util.List;
 
 public class FunctionDefinition extends AbstractDefinition {
@@ -17,5 +19,9 @@ public class FunctionDefinition extends AbstractDefinition {
 
     public List<Statement> getBody() {
         return body;
+    }
+
+    public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
+        return v.visit(this, param);
     }
 }

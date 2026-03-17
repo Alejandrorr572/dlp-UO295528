@@ -21,6 +21,10 @@ public class ErrorHandler {
         return instance;
     }
 
+    public void addError(ErrorType error){
+        errors.add(error);
+    }
+
     public boolean anyError(){
         return !errors.isEmpty();
     }

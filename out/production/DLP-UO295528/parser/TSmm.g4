@@ -29,7 +29,7 @@ statement returns [List<Statement> ast] locals [List<Expression> params = new Ar
     | INPUT='input' e1=expression {$params.add($e1.ast);} (',' e2=expression {$params.add($e2.ast);} )* ';'
     {
         $ast = new ArrayList<>();
-        $ast.add(new Read($params, $INPUT.getLine(), $INPUT.getCharPositionInLine() + 1));
+        $ast.add(new Input($params, $INPUT.getLine(), $INPUT.getCharPositionInLine() + 1));
     }
 
     | e1=expression '=' e2=expression ';'
@@ -225,7 +225,7 @@ var_definitions returns [List<Definition> ast] locals [List<String> ids = new Ar
 
 type returns [Type ast] locals [int dim = 1, List<RecordField> records = new ArrayList<>(), List<String> ids = new ArrayList<>()]:
     simple_type {$ast = $simple_type.ast;}
-    | '['('let' ID1=ID
+    | '['(LET='let' ID1=ID
     {
     $ids.add($ID1.text);
     } (',' ID2=ID
@@ -234,9 +234,9 @@ type returns [Type ast] locals [int dim = 1, List<RecordField> records = new Arr
     })* ':' type ';'
     {
         for(String id: $ids){
-            $records.add(new RecordField($type.ast,id));
+            $records.add(new RecordField($type.ast,id,$LET.getLine(), $LET.getCharPositionInLine() + 1));
+            $ids = new ArrayList<>();
         }
-        $ids = new ArrayList<>();
     })*']'
         {$ast = new RecordType($records);}
 

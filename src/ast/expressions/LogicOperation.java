@@ -1,8 +1,9 @@
 package ast.expressions;
 
 import ast.AbstractLocatable;
+import visitors.Visitor;
 
-public class LogicOperation extends AbstractLocatable implements Expression {
+public class LogicOperation extends AbstractExpression {
 
     private Expression left;
     private String operator;
@@ -13,6 +14,10 @@ public class LogicOperation extends AbstractLocatable implements Expression {
         this.left = left;
         this.operator = operator;
         this.right = right;
+    }
+
+    public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
+        return v.visit(this, param);
     }
 
     public Expression getLeft() {

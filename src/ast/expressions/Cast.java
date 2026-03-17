@@ -2,8 +2,9 @@ package ast.expressions;
 
 import ast.AbstractLocatable;
 import ast.types.Type;
+import visitors.Visitor;
 
-public class Cast extends AbstractLocatable implements Expression {
+public class Cast extends AbstractExpression {
     private Type type;
     private Expression expression;
 
@@ -11,5 +12,13 @@ public class Cast extends AbstractLocatable implements Expression {
         super(line, column);
         this.type = type;
         this.expression = expression;
+    }
+
+    public Expression getExpression(){
+        return expression;
+    }
+
+    public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
+        return v.visit(this, param);
     }
 }

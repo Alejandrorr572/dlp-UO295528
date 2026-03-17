@@ -1,6 +1,7 @@
 package ast.statements;
 
 import ast.expressions.Expression;
+import visitors.Visitor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,5 +20,9 @@ public class IfElse extends ConditionalSentence {
 
     public void addElseBody(List<Statement> elseBody){
         this.elseBody = elseBody;
+    }
+
+    public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
+        return v.visit(this, param);
     }
 }

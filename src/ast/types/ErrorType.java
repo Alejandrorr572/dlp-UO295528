@@ -1,6 +1,7 @@
 package ast.types;
 
 import ast.Locatable;
+import visitors.Visitor;
 
 public class ErrorType implements Type {
 
@@ -14,5 +15,9 @@ public class ErrorType implements Type {
 
     public String toString(){
         return cause;
+    }
+
+    public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
+        return v.visit(this, param);
     }
 }

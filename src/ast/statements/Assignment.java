@@ -2,6 +2,7 @@ package ast.statements;
 
 import ast.AbstractLocatable;
 import ast.expressions.Expression;
+import visitors.Visitor;
 
 public class Assignment extends AbstractLocatable implements Statement {
 
@@ -20,5 +21,9 @@ public class Assignment extends AbstractLocatable implements Statement {
 
     public Expression getRight() {
         return right;
+    }
+
+    public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
+        return v.visit(this, param);
     }
 }
