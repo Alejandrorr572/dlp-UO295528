@@ -1,12 +1,14 @@
 package ast.types;
 
+import ast.Locatable;
 import ast.definitions.VarDefinition;
 import ast.statements.Statement;
+import errorhandler.ErrorHandler;
 import visitors.Visitor;
 
 import java.util.List;
 
-public class FunctionType implements Type {
+public class FunctionType extends AbstractType {
 
     private List<VarDefinition> parameters;
     private Type returnType;
@@ -21,6 +23,25 @@ public class FunctionType implements Type {
     }
 
     public Type getReturnType() {
+        return returnType;
+    }
+
+    @Override
+    public Type parenthesis(List<Type> argumentTypes, Locatable locatable) {
+
+        if (argumentTypes.size() != parameters.size()) {
+            ErrorType error = new ErrorType(
+                    "Function expects " + parameters.size() + " params", locatable);
+            ErrorHandler.getInstance().addError(error);
+            return returnType;
+        }
+
+        for (int i = 0; i < parameters.size(); i++) {
+            Type auxType = argumentTypes.get(i);
+            Type paramType = parameters.get(i).getType();
+            auxType.mustBePromotedTo(paramType, locatable);
+        }
+
         return returnType;
     }
 

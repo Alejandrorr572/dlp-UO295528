@@ -22,4 +22,10 @@ public class Input extends AbstractLocatable implements Statement {
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }
+
+    @Override
+    public String toString() {
+        return "Input [numExpressions=" + expressions.size() +
+                ", line=" + getLine() + ", column=" + getColumn() + "]";
+    }
 }

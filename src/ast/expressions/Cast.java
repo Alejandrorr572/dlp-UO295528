@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import ast.types.Type;
 import visitors.Visitor;
 
@@ -20,5 +19,10 @@ public class Cast extends AbstractExpression {
 
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
+    }
+
+    @Override
+    public String toString() {
+        return "Cast [targetType=" + type + ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

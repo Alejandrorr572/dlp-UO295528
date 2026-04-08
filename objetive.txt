@@ -1,1 +1,2 @@
-Traverse the AST with the visitor design pattern, annotating the lvalue attribute for expressions. The compiler must accept input.txt and prompt the appropriate error messages for input.wrong.1.txt and input.wrong.2.txt.
+Implement the type checking pass of the semantic analysis phase. Annotate the AST with all the type information. Detect the type errors in the 5 input files provided.
+

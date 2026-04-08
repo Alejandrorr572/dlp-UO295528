@@ -99,7 +99,8 @@ public class LvalueVisitor extends AbstractVisitor<Void,Void>{
         super.visit(node,param);
         if(!node.getLeft().getLvalue()){
             ErrorHandler.getInstance().addError(new ErrorType(
-                    "Error: Left expression of assignment must have true lvalue",node.getLeft()));
+                    "Error: Left expression of assignment in position [" +
+                                node.getLine()+ ","+node.getColumn()+"] must have true lvalue",node.getLeft()));
         }
         return null;
     }
@@ -109,7 +110,8 @@ public class LvalueVisitor extends AbstractVisitor<Void,Void>{
         for(Expression exp : node.getExpressions()){
             if(!exp.getLvalue()) {
                 ErrorHandler.getInstance().addError(new ErrorType(
-                        "Error: Left expression of assignment must have true lvalue",exp));
+                        "Error: Expression in position [" +
+                                node.getLine()+ ","+node.getColumn()+"] must have true lvalue",exp));
             }
         }
         return null;

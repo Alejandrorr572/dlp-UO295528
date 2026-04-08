@@ -1,5 +1,6 @@
-1. Take the existing AST implementation (lab 02)
-2. Take the language recognizer (lab 04)
-3. Adding embedded code to your ANTLR grammar, implement the language parser to create the AST
-4. Check its correctness by using Introspector
+Implement the identification pass of the semantic analysis phase. 
+Complete SymbolTable.java to make SymbolTableTest.java succeed. 
+Then, implement the identification pass. 
+Check the correctness of the implementation exploring the input.txt with the introspector. 
+The 8 error messages in worng.input.txt must be prompted by the compiler.
 

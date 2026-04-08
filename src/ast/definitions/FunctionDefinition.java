@@ -1,8 +1,6 @@
 package ast.definitions;
 
-import ast.AbstractLocatable;
 import ast.types.FunctionType;
-import ast.types.Type;
 import ast.statements.Statement;
 import visitors.Visitor;
 
@@ -23,5 +21,11 @@ public class FunctionDefinition extends AbstractDefinition {
 
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
+    }
+
+    @Override
+    public String toString() {
+        return "FunctionDefinition [name=" + getName() + ", type=" + getType() +
+                ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

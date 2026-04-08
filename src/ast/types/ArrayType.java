@@ -1,8 +1,10 @@
 package ast.types;
 
+import ast.Locatable;
+import errorhandler.ErrorHandler;
 import visitors.Visitor;
 
-public class ArrayType implements Type {
+public class ArrayType extends AbstractType {
 
     private int size;
     private Type elementsType;
@@ -18,6 +20,22 @@ public class ArrayType implements Type {
 
     public Type getElementsType() {
         return elementsType;
+    }
+
+    @Override
+    public Type squareBrackets(Type other, Locatable locatable) {
+        if (other instanceof Int) {
+            return elementsType;
+        }
+
+        if (other instanceof ErrorType) {
+            return elementsType;
+        }
+
+        ErrorType error = new ErrorType(
+                "Array index should be an int, but was " + other.getClass().getSimpleName(), locatable);
+        ErrorHandler.getInstance().addError(error);
+        return error;
     }
 
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {

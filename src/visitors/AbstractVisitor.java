@@ -142,10 +142,10 @@ public abstract class AbstractVisitor<PT, RT> implements Visitor<PT, RT> {
 
     
     public RT visit(FunctionDefinition node, PT param) {
+        node.getType().accept(this,param);
         for(Statement st : node.getBody()){
             st.accept(this,param);
         }
-        node.getType().accept(this,param);
         return null;
     }
 

@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class ArithmeticOperation extends AbstractExpression {
@@ -30,5 +29,10 @@ public class ArithmeticOperation extends AbstractExpression {
 
     public Expression getRight() {
         return right;
+    }
+
+    @Override
+    public String toString() {
+        return "ArithmeticOperation [operator=" + operator + ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

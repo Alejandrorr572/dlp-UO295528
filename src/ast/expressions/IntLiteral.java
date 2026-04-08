@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class IntLiteral extends AbstractExpression {
@@ -18,5 +17,10 @@ public class IntLiteral extends AbstractExpression {
 
     public int getValue() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return "IntLiteral [value=" + value + ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

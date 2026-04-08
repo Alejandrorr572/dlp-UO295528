@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class UnaryNot extends AbstractExpression {
@@ -18,5 +17,10 @@ public class UnaryNot extends AbstractExpression {
 
     public Expression getRight() {
         return right;
+    }
+
+    @Override
+    public String toString() {
+        return "UnaryNot [line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

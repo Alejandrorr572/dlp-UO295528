@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class UnaryMinus extends AbstractExpression {
@@ -18,5 +17,10 @@ public class UnaryMinus extends AbstractExpression {
 
     public Expression getRight() {
         return right;
+    }
+
+    @Override
+    public String toString() {
+        return "UnaryMinus [line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

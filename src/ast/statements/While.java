@@ -14,4 +14,10 @@ public class While extends ConditionalSentence {
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }
+
+    @Override
+    public String toString() {
+        return "While [bodySize=" + getBody().size() +
+                ", line=" + getLine() + ", column=" + getColumn() + "]";
+    }
 }

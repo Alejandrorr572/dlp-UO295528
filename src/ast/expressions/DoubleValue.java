@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class DoubleValue extends AbstractExpression {
@@ -18,5 +17,10 @@ public class DoubleValue extends AbstractExpression {
 
     public double getValue() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return "DoubleValue [value=" + value + ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

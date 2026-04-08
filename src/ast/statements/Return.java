@@ -20,4 +20,9 @@ public class Return extends AbstractLocatable implements Statement {
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }
+
+    @Override
+    public String toString() {
+        return "Return [line=" + getLine() + ", column=" + getColumn() + "]";
+    }
 }

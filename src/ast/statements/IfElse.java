@@ -25,4 +25,10 @@ public class IfElse extends ConditionalSentence {
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }
+
+    @Override
+    public String toString() {
+        return "IfElse [bodySize=" + getBody().size() + ", elseBodySize=" + elseBody.size() +
+                ", line=" + getLine() + ", column=" + getColumn() + "]";
+    }
 }

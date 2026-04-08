@@ -1,4 +1,3 @@
-1. Añade la implementación del AST (lab 02)
-2. Añade el analizador sintáctico (lab 04)
-3. Incluyendo código embebido en la gramática de ANTLR, implementa un parser para crear ASTs.
-4. Verifica su correcto funcionamiento mediante Introspector
+Implementar la pasada de comprobación de tipos de la fase de análisis semántico.
+Decorar el AST con la información de tipos.
+Detectar los errores de los 5 programas de prueba.

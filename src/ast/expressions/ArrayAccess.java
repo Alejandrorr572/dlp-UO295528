@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class ArrayAccess extends AbstractExpression {
@@ -24,5 +23,10 @@ public class ArrayAccess extends AbstractExpression {
 
     public Expression getValue() {
         return value;
+    }
+
+    @Override
+    public String toString() {
+        return "ArrayAccess [line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

@@ -26,4 +26,9 @@ public class Assignment extends AbstractLocatable implements Statement {
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }
+
+    @Override
+    public String toString() {
+        return "Assignment [line=" + getLine() + ", column=" + getColumn() + "]";
+    }
 }

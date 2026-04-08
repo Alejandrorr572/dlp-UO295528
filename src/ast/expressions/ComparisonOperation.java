@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class ComparisonOperation extends AbstractExpression {
@@ -30,5 +29,10 @@ public class ComparisonOperation extends AbstractExpression {
 
     public Expression getRight() {
         return right;
+    }
+
+    @Override
+    public String toString() {
+        return "ComparisonOperation [operator=" + operator + ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

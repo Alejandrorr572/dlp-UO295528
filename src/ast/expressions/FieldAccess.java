@@ -1,6 +1,5 @@
 package ast.expressions;
 
-import ast.AbstractLocatable;
 import visitors.Visitor;
 
 public class FieldAccess extends AbstractExpression {
@@ -24,5 +23,10 @@ public class FieldAccess extends AbstractExpression {
 
     public String getField() {
         return field;
+    }
+
+    @Override
+    public String toString() {
+        return "FieldAccess [field=" + field + ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }
