@@ -65,6 +65,10 @@ public class Char extends AbstractType {
         return super.cast(targetType, locatable);
     }
 
+    public int numberOfBytes(){
+        return 1;
+    }
+
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }

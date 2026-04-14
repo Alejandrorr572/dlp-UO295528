@@ -91,6 +91,10 @@ public class Int extends AbstractType {
         return super.cast(other, locatable);
     }
 
+    public int numberOfBytes(){
+        return 2;
+    }
+
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }

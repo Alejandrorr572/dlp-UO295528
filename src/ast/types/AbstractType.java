@@ -10,6 +10,11 @@ import java.util.List;
 public abstract class AbstractType implements Type {
 
     @Override
+    public int numberOfBytes(){
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
     public void mustBeLogic(Locatable locatable) {
         ErrorHandler.getInstance().addError(new ErrorType("Type must be logic", locatable));
     }

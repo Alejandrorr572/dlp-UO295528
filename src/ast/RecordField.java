@@ -5,6 +5,7 @@ import visitors.Visitor;
 
 public class RecordField extends AbstractLocatable implements ASTNode{
 
+    private int offset;
     private Type type;
     private String identifier;
 
@@ -12,6 +13,14 @@ public class RecordField extends AbstractLocatable implements ASTNode{
         super(line,column);
         this.type = type;
         this.identifier = identifier;
+    }
+
+    public void setOffset(int offset){
+        this.offset = offset;
+    }
+
+    public int getOffset(){
+        return offset;
     }
 
     public Type getType() {

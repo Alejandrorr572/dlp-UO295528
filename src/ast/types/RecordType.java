@@ -33,6 +33,15 @@ public class RecordType extends AbstractType {
         return error;
     }
 
+    @Override
+    public int numberOfBytes() {
+        int bytes = 0;
+        for(RecordField field: fields){
+            bytes += field.getType().numberOfBytes();
+        }
+        return bytes;
+    }
+
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }

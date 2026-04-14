@@ -73,4 +73,8 @@ public class Real extends AbstractType {
         }
         return super.cast(targetType, locatable);
     }
+
+    public int numberOfBytes(){
+        return 4;
+    }
 }

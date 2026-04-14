@@ -8,6 +8,9 @@ import ast.expressions.Expression;
 import java.util.List;
 
 public interface Type extends ASTNode {
+
+    public int numberOfBytes();
+
     //Musts
     void mustBeLogic(Locatable locatable);
     void mustBePromotedTo(Type other, Locatable locatable);
@@ -23,5 +26,4 @@ public interface Type extends ASTNode {
     Type logic(Type other, Locatable locatable);
     Type logic(Locatable locatable);
     Type cast(Type targetType, Locatable locatable);
-
 }
