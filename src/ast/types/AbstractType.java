@@ -11,7 +11,7 @@ public abstract class AbstractType implements Type {
 
     @Override
     public int numberOfBytes(){
-        throw new UnsupportedOperationException();
+        return 0;
     }
 
     @Override

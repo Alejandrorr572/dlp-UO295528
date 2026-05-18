@@ -1,16 +1,11 @@
 package visitors;
 
-import ast.Program;
-import ast.RecordField;
-import ast.definitions.Definition;
-import ast.definitions.FunctionDefinition;
-import ast.definitions.VarDefinition;
 import ast.expressions.*;
 import ast.statements.*;
 import ast.types.*;
 import errorhandler.ErrorHandler;
 
-public class LvalueVisitor extends AbstractVisitor<Void,Void>{
+public class LValueVisitor extends AbstractVisitor<Void,Void>{
 
     public Void visit(ArithmeticOperation node, Void param) {
         super.visit(node,param);

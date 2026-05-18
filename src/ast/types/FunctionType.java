@@ -13,6 +13,8 @@ public class FunctionType extends AbstractType {
     private List<VarDefinition> parameters;
     private Type returnType;
 
+    private int paramBytes;
+
     public FunctionType(List<VarDefinition> parameters, Type returnType) {
         this.parameters = parameters;
         this.returnType = returnType;
@@ -43,6 +45,19 @@ public class FunctionType extends AbstractType {
         }
 
         return returnType;
+    }
+
+    @Override
+    public int numberOfBytes() {
+        return returnType.numberOfBytes();
+    }
+
+    public void setParamBytes(int paramBytes){
+        this.paramBytes = paramBytes;
+    }
+
+    public int getParamBytes(){
+       return this.paramBytes;
     }
 
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {

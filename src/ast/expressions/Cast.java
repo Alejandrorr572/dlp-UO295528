@@ -4,13 +4,17 @@ import ast.types.Type;
 import visitors.Visitor;
 
 public class Cast extends AbstractExpression {
-    private Type type;
+    private Type castType;
     private Expression expression;
 
     public Cast(Type type, Expression expression, int line, int column){
         super(line, column);
-        this.type = type;
+        this.castType = type;
         this.expression = expression;
+    }
+
+    public Type getCastType(){
+        return castType;
     }
 
     public Expression getExpression(){
@@ -23,6 +27,6 @@ public class Cast extends AbstractExpression {
 
     @Override
     public String toString() {
-        return "Cast [targetType=" + type + ", line=" + getLine() + ", column=" + getColumn() + "]";
+        return "Cast [targetType=" + castType + ", line=" + getLine() + ", column=" + getColumn() + "]";
     }
 }

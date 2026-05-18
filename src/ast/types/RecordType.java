@@ -42,6 +42,13 @@ public class RecordType extends AbstractType {
         return bytes;
     }
 
+    public RecordField getField(String field) {
+        for(RecordField recordField : getFields()){
+            if(recordField.getIdentifier().equals(field)) return recordField;
+        }
+        return null;
+    }
+
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }

@@ -37,7 +37,7 @@ public class Char extends AbstractType {
         if (other instanceof Char || other instanceof Int) {
             return Int.getInstance();
         }
-        if (other instanceof ErrorType) {
+        if (other instanceof Real || other instanceof ErrorType) {
             return other;
         }
         return super.arithmetic(other, locatable);

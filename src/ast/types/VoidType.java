@@ -28,6 +28,10 @@ public class VoidType extends AbstractType {
                 "Void cannot be promoted to " + other.getClass().getSimpleName(), locatable));
     }
 
+    public int numberOfBytes(){
+        return 0;
+    }
+
     public <PT,RT> RT accept(Visitor<PT,RT> v, PT param) {
         return v.visit(this, param);
     }

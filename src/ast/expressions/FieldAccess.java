@@ -1,5 +1,6 @@
 package ast.expressions;
 
+import ast.types.RecordType;
 import visitors.Visitor;
 
 public class FieldAccess extends AbstractExpression {

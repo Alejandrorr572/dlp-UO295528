@@ -38,7 +38,7 @@ public class Real extends AbstractType {
 
     @Override
     public Type arithmetic(Type other, Locatable locatable) {
-        if (other instanceof Real || other instanceof Int) {
+        if (other instanceof Real || other instanceof Int || other instanceof Char) {
             return this;
         }
         if (other instanceof ErrorType) {

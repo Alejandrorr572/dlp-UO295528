@@ -40,6 +40,8 @@ public class OffsetVisitor extends AbstractVisitor<Boolean,Void> {
         for (Statement stmt : node.getBody()) {
             stmt.accept(this, false);
         }
+
+        node.setLocalBytes(-localOffset); // y lo pongo en positvi
         return null;
     }
 
@@ -52,6 +54,8 @@ public class OffsetVisitor extends AbstractVisitor<Boolean,Void> {
             funcParam.setOffset(current);
             current += funcParam.getType().numberOfBytes();
         }
+
+        node.setParamBytes(current - 4); //Params - BP supongo palo de 0 a menos tanto
 
         /**
          * Si en el examen nos hacen poner mas q tipo simple descomento y gg ez

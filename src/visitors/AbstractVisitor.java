@@ -63,8 +63,7 @@ public abstract class AbstractVisitor<PT, RT> implements Visitor<PT, RT> {
         return null;
     }
 
-    
-    public RT visit(LogicOperation node, PT param) {
+   public RT visit(LogicOperation node, PT param) {
         node.getLeft().accept(this,param);
         node.getRight().accept(this,param);
         return null;

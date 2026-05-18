@@ -172,9 +172,7 @@ public class TypeCheckingVisitor extends AbstractVisitor<Type, Void> {
     public Void visit(Cast node, Type param) {
         node.getExpression().accept(this, param);
 
-        node.getType().mustBeBuiltIn(node);
-
-        Type result = node.getExpression().getType().cast(node.getType(), node);
+        Type result = node.getExpression().getType().cast(node.getCastType(), node);
         node.setType(result);
         return null;
     }

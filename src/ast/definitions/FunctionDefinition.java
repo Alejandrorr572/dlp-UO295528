@@ -9,6 +9,7 @@ import java.util.List;
 public class FunctionDefinition extends AbstractDefinition {
 
     private List<Statement> body;
+    private int localBytes;
 
     public FunctionDefinition(String name, FunctionType type, List<Statement> body, int line, int column) {
         super(line,column, name, type);
@@ -27,5 +28,23 @@ public class FunctionDefinition extends AbstractDefinition {
     public String toString() {
         return "FunctionDefinition [name=" + getName() + ", type=" + getType() +
                 ", line=" + getLine() + ", column=" + getColumn() + "]";
+    }
+
+    @Override
+    public int getOffset() {
+        return 0;
+    }
+
+    public void setLocalBytes(int localBytes){
+        this.localBytes = localBytes;
+    }
+
+    public int getLocalBytes(){
+        return this.localBytes;
+    }
+
+    @Override
+    public FunctionType getType() {
+        return (FunctionType) super.getType();
     }
 }
